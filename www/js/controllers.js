@@ -15,6 +15,28 @@ angular.module('starter.controllers', ['lodash'])
         return data.tours.filter(function(tour){
           return tour.id === tourId;
         }) 
+      },
+      search: function(query_string) {
+        var result = [];
+        var arr1 = [];
+        arr1 = this.city_search(query_string.toLowerCase());
+        if (arr1.length != 0) {result = result.concat(arr1)}
+        console.log(result);
+        return result;
+      },
+      city_search: function(query_string) {
+        var arr = [];
+        for (var i = this.length - 1; i >= 0; i--) {
+          if (this.data[i]["name"].toLowerCase() == query_string) {
+            arr.push(this.data[i]);
+          }
+        }
+        for (var i = this.length - 1; i >= 0; i--) {
+          if (this.data[i]["name"].toLowerCase().indexOf(query_string) == 0) {
+            arr.push(this.data[i]);
+          }
+        }
+        return arr;
       }
     }
   }); 
@@ -75,6 +97,9 @@ angular.module('starter.controllers', ['lodash'])
 
 .controller('ToursCtrl', function($scope, $rootScope) {
     $scope.tours = $rootScope.tours.data;
+    $scope.searchChanged = function() {
+      $scope.tours = $rootScope.tours.search(this.searchInput);
+    };
     $scope.activities = ['лыжи', 'ночь', 'верблюды', 'океан', 'шопинг', 'клубы'];
 })
 
