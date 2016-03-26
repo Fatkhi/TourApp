@@ -1,12 +1,17 @@
 angular.module('starter.controllers', ['lodash'])
 .run(function (Tours, $rootScope) {
   Tours.getTours(function (r) {
-    var tours = Tours.parse(r);
-    console.log(tours);
+    var data = Tours.parse(r);
+    console.log(data);
     $rootScope.tours = {
-      data: tours.tours,
+      data: data.tours,
+      getCountry: function (tourId) {
+        return data.countries.filter(function(country){
+          return country.id === tourId;
+        }) 
+      },
       getTour: function (tourId) {
-        return tours.tours.filter(function(tour){
+        return data.tours.filter(function(tour){
           return tour.id === tourId;
         }) 
       }
@@ -48,6 +53,21 @@ angular.module('starter.controllers', ['lodash'])
 })
 
 .controller('TourCtrl', function($scope, $stateParams, $rootScope) {
+  $scope.limit = 200;
+  $scope.more = false;
+  
+  $scope.showMore = function () {
+    $scope.more = true;
+  };
+
+  $scope.showLess = function () {
+    $scope.more = false;
+  }
+
   $scope.tour = $rootScope.tours.getTour(1)[0];
-  console.log($scope.tour.image);
+  $scope.tour.country = $rootScope.tours.getCountry(1)[0].name;
+  console.log($rootScope.tours.getCountry(1)[0]);
+})
+.controller('tourLocationCtrl', function($scope, $stateParams) {
+
 })
