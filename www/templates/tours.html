@@ -1,0 +1,20 @@
+<ion-view view-title="Tours">
+  <ion-content>
+    <ion-list>
+      <!--<ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">-->
+        <!--{{playlist.title}}-->
+      <!--</ion-item>-->
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input ng-model="searchInput" ng-change="searchChanged()" type="text" placeholder="Search">
+        </label>
+      </div>
+      <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="tour in tours" href="#/app/tours/{{tour.id}}">
+        <img src="img/cover.jpg">
+        <h2>{{tour.name}}</h2>
+        <p class="description">Сумасшедшее старческое приключение за состояние</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
