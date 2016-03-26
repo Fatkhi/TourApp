@@ -4,7 +4,7 @@ angular.module('starter.controllers', ['lodash'])
     var tours = Tours.parse(r);
     console.log(tours);
     $rootScope.tours = {
-      data: tours,
+      data: tours.tours,
       getTour: function (tourId) {
         return tours.tours.filter(function(tour){
           return tour.id === tourId;
@@ -49,4 +49,5 @@ angular.module('starter.controllers', ['lodash'])
 
 .controller('TourCtrl', function($scope, $stateParams, $rootScope) {
   $scope.tour = $rootScope.tours.getTour(1)[0];
+  console.log($scope.tour.image);
 })
