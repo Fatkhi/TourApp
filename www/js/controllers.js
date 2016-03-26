@@ -80,27 +80,27 @@ angular.module('starter.controllers', ['lodash'])
   $scope.activities = [
       {
         name: 'лыжи',
-        img: 'img/lizhi.png'
+        img: 'data/img/lizhi.png'
       },
       {
         name: 'верблюды',
-        img: 'img/camel.jpg'
+        img: 'data/img/camel.jpg'
       },
       {
         name: 'ночь',
-        img: 'img/night.png'
+        img: 'data/img/night.png'
       },
       {
         name: 'шопинг',
-        img: 'img/shopping.png'
+        img: 'data/img/shopping.png'
       },
       {
         name: 'океан',
-        img: 'img/ocean.png'
+        img: 'data/img/ocean.png'
       },
       {
         name: 'клубы',
-        img: 'img/club.png'
+        img: 'data/img/club.png'
       }
     ];
   $scope.min = function() {
@@ -129,7 +129,7 @@ angular.module('starter.controllers', ['lodash'])
       $scope.tours = $rootScope.tours.search(this.searchInput);
     };
     $scope.desc = function(item) {
-      return item.description.split(' ').slice(0, 8).join(' ') + ' ...';
+      return item.description.split(' ').slice(0, 7).join(' ') + ' ...';
     };
 })
 

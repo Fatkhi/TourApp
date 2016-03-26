@@ -7,11 +7,11 @@
 a {
     text-decoration: none;
 }
-.majorScreen {
-    margin-top: 90%;
-}
+/*.majorScreen {*/
+    /*margin-top: 90%;*/
+/*}*/
 .bgPeople{
-    background: url("/img/bg.jpg");
+    background: url("../img/bg.jpg");
     background-position: 0, 0;
     background-repeat:no-repeat;
 }

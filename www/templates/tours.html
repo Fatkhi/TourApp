@@ -8,7 +8,7 @@
         </label>
       </div>
       <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="tour in tours" href="#/app/tours/{{tour.id}}">
-        <img ng-src={{tour.image}}>
+        <img ng-src={{tour.image[0]}}>
         <h2>{{tour.name}}</h2>
         <p class="description">{{desc(tour)}}</p>
         <ion-option-button class="button-positive" ng-click="getDirections(tour)">

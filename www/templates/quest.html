@@ -3,7 +3,7 @@
     <form action="" name="quest">
       <div class="list">
       <div class="item item-divider">
-        Выберите погоду  <span style="float: right"> {{temperature}} &#8451;</span>>
+        Выберите погоду  <span style="float: right"> {{temperature}} &#8451;</span>
       </div>
       <div class="item range range-positive">
         <i class="icon ion-ios-snowy"></i>
@@ -11,7 +11,7 @@
         <i class="icon ion-ios-sunny"></i>
       </div>
       <div class="item item-divider">
-        Выставьте ориентировочную цену <span style="float: right">{{price | currency : $ : 0}}</span>
+        Ориентировочная цену <span style="float: right">{{price | currency : $ : 0}}</span>
       </div>
       <div class="item range range-positive">
         <i class="icon ion-social-usd-outline"></i>
@@ -27,7 +27,7 @@
         Выберите чем хотите заняться
       </div>
       <a ng-repeat="act in activities" class="item item-avatar-left" href="#/app/tours/1">
-        <img src="{{act.img}}">
+        <img ng-src="{{act.img}}">
         <h2>{{act.name}}</h2>
       </a>
     </div>
