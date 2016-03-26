@@ -8,9 +8,11 @@
         </label>
       </div>
       <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="tour in tours" href="#/app/tours/{{tour.id}}">
-        <img src="img/cover.jpg">
+        <img src="{{tour.image}}">
         <h2>{{tour.name}}</h2>
-        <p class="description"><span ng-repeat="t in tour.keys"> {{t}}</p>
+        <p class="description">{{tour.description}}</p>
+        <p>{{tour.price}} у.е.</p>
+        <p><span ng-repeat="type in tour.type">{{type}}, </span></p>
         <ion-option-button class="button-positive" ng-click="getDirections(tour)">
           <i class="ion ion-map"></i>&nbsp;Show map
         </ion-option-button>

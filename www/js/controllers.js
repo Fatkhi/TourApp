@@ -1,5 +1,6 @@
 angular.module('starter.controllers', ['lodash'])
-.run(function (Tours, $rootScope) {
+.run(function (Tours, $rootScope, $interval) {
+
   Tours.getTours(function (r) {
     var data = Tours.parse(r);
     console.log(data);
@@ -19,21 +20,30 @@ angular.module('starter.controllers', ['lodash'])
     }
   }); 
 })
+.factory("Tours", function($http) {
+
+    function getTours (cb) {
+      $http.get('data/data.json').then(cb);
+    };
+
+    function parse(r) {
+      return r.data;
+    }
+
+  return {
+    getTours: getTours,
+    parse: parse
+  };
+})
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $interval) {
-  var min = 0;
+   var min = 0;
   var max = $rootScope.tours.length;
+  $scope.id = 1;
   $interval(updateTour, 1000);
 
   function updateTour () {
     $scope.id = Math.random() * (max - min) + min;
   }
-
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
 })
 
 
@@ -54,20 +64,15 @@ $scope.uniqueKeys = arr.map(function(node) { return {name: node};});
 }])
 */
 
-.factory("Tours", function($http) {
+.controller('MainCtrl', function($scope, $stateParams, $rootScope, $interval) {
+  var min = 0;
+  var max = $rootScope.tours.length;
+  $scope.id = 1;
+  $interval(updateTour, 1000);
 
-    function getTours (cb) {
-      $http.get('data/data.json').then(cb);
-    };
-
-    function parse(r) {
-      return r.data;
-    }
-
-  return {
-    getTours: getTours,
-    parse: parse
-  };
+  function updateTour () {
+    $scope.id = Math.random() * (max - min) + min;
+  }
 })
 
 .controller('ToursCtrl', function($scope, $rootScope) {
@@ -79,6 +84,9 @@ $scope.uniqueKeys = arr.map(function(node) { return {name: node};});
   $scope.limit = 200;
   $scope.more = false;
   $scope.id = parseInt($stateParams.id);
+  $scope.tour = $rootScope.tours.getTour($scope.id)[0];
+  $scope.tour.country = $rootScope.tours.getCountry($scope.tour.CountryId)[0].name;
+
   $scope.showMore = function () {
     $scope.more = true;
   };
@@ -86,12 +94,8 @@ $scope.uniqueKeys = arr.map(function(node) { return {name: node};});
   $scope.showLess = function () {
     $scope.more = false;
   }
-
-  console.log( $stateParams.id);
-  $scope.tour = $rootScope.tours.getTour($scope.id)[0];
-
-  $scope.tour.country = $rootScope.tours.getCountry($scope.tour.CountryId)[0].name;
 })
+
 .controller('tourLocationCtrl', function($scope, $stateParams) {
 
 })
