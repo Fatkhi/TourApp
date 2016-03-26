@@ -1,1 +1,17 @@
 /* Empty. Add your own CSS if you like */
+.killerButton {
+    width:100%;
+    border-radius: 0;
+    margin: 1% 0;
+}
+a {
+    text-decoration: none;
+}
+.majorScreen {
+    margin-top: 90%;
+}
+.bgPeople{
+    background: url("/img/bg.jpg");
+    background-position: 0, 0;
+    background-repeat:no-repeat;
+}
