@@ -79,36 +79,31 @@ angular.module('starter.controllers', ['lodash'])
   $scope.price = 1000;
   $scope.activities = [
       {
-        name: 'лыжи',
+        name: 'Лыжи',
         img: 'data/img/lizhi.png'
       },
       {
-        name: 'верблюды',
+        name: 'Верблюды',
         img: 'data/img/camel.jpg'
       },
       {
-        name: 'ночь',
+        name: 'Ночь',
         img: 'data/img/night.png'
       },
       {
-        name: 'шопинг',
+        name: 'Шопинг',
         img: 'data/img/shopping.png'
       },
       {
-        name: 'океан',
+        name: 'Океан',
         img: 'data/img/ocean.png'
       },
       {
-        name: 'клубы',
+        name: 'Клубы',
         img: 'data/img/club.png'
       }
     ];
-  $scope.min = function() {
-    if (this.priceMin >= this.priceMax) this.priceMax = this.priceMin;
-  };
-  $scope.max = function() {
-    if (this.priceMax <= this.priceMax) this.priceMin = this.priceMax;
-  };
+
 
 }])
 
