@@ -1,5 +1,5 @@
 
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['lodash'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -126,7 +126,10 @@ angular.module('starter.controllers', [])
   return Tours;
 })
 
-.controller('ToursCtrl', ["$scope", "Tours", function($scope, Tours) {
+.controller('ToursCtrl', ["$scope", "Tours", function($scope, Tours) { 
+    _([1, 2]).forEach(function(value) {
+      console.log(value);
+    });
     $scope.tours = Tours.getTours();
 }])
 
