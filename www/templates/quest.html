@@ -1,9 +1,15 @@
+<div class="bar bar-footer bar-balanced">
+  <div class="title">Подобрать тур</div>
+</div>
 <ion-view view-title="Подбор тура">
   <ion-content>
+
     <div class="list">
+
       <div class="item item-divider">
         Выберите погоду
       </div>
+
       <div class="item range range-positive">
         <i class="icon ion-ios-snowy"></i>
         <input type="range" name="volume" min="0" max="100" value="33">
@@ -20,27 +26,11 @@
       <div class="item item-divider">
         Выберите чем хотите заняться
       </div>
-      <a class="item item-thumbnail-left" href="#/app/tours/1">
-        <img src="/img/cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </a>
-      <a class="item item-thumbnail-left" href="#/app/tours/1">
-        <img src="/img/cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </a>
-      <a class="item item-thumbnail-left" href="#/app/tours/1">
-        <img src="/img/cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </a>
-      <a class="item item-thumbnail-left" href="#/app/tours/1">
-        <img src="/img/cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </a>
+      <ion-list>
+        <ion-checkbox ng-repeat="key in uniqueKeys" ng-model="filter.blue"> {{key.name}}</ion-checkbox>
+      </ion-list>
+      <br>
+      <br>
     </div>
-
   </ion-content>
 </ion-view>

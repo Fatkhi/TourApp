@@ -28,8 +28,9 @@ angular.module('starter.controllers', ['lodash'])
   //});
 })
 
-.controller('QuestCtrl', function($scope, $stateParams) {
-
+.controller('QuestCtrl', function($scope, $rootScope) {
+var arr = _.flatten( _.pluck($rootScope.tours.data, 'keys') );
+$scope.uniqueKeys = arr.map(function(node) { return {name: node};});
 })
 
 .factory("Tours", function($http) {

@@ -10,7 +10,7 @@
       <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="tour in tours" href="#/app/tours/{{tour.id}}">
         <img src="img/cover.jpg">
         <h2>{{tour.name}}</h2>
-        <p class="description">Сумасшедшее старческое приключение за состояние</p>
+        <p class="description"><span ng-repeat="t in tour.keys"> {{t}}</p>
         <ion-option-button class="button-positive" ng-click="getDirections(tour)">
           <i class="ion ion-map"></i>&nbsp;Show map
         </ion-option-button>

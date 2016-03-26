@@ -15,3 +15,7 @@ a {
     background-position: 0, 0;
     background-repeat:no-repeat;
 }
+
+.description {
+	white-space: normal !important;
+}
