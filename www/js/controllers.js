@@ -5,7 +5,11 @@ angular.module('starter.controllers', ['lodash'])
     console.log(data);
     $rootScope.tours = {
       data: data.tours,
-      countries: data.coutries,
+      getCountry: function (tourId) {
+        return data.countries.filter(function(country){
+          return country.id === tourId;
+        }) 
+      },
       getTour: function (tourId) {
         return data.tours.filter(function(tour){
           return tour.id === tourId;
@@ -50,5 +54,7 @@ angular.module('starter.controllers', ['lodash'])
 
 .controller('TourCtrl', function($scope, $stateParams, $rootScope) {
   $scope.tour = $rootScope.tours.getTour(1)[0];
-  console.log($scope.tour.image);
+  $scope.tour.country = $rootScope.tours.getCountry(1)[0].name;
+  $scope.country = 
+  console.log($rootScope.tours.getCountry(1)[0]);
 })

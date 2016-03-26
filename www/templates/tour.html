@@ -1,4 +1,4 @@
-<ion-view view-title="Аргентина">
+<ion-view view-title="{{tour.country}}">
   <ion-content class="padding-vertical">
     <ion-slide-box on-slide-changed="slideHasChanged($index)">
       <ion-slide>
@@ -20,7 +20,7 @@
         <span ng-show="more"></span>
         <span ng-show="more">hide</span>
       </p>
-      <h4 class="padding-vertical"> Страна: </b> Аргентина </h4>
+      <h4 class="padding-vertical"> Страна: </b> {{tour.country}} </h4>
       <div>
         <span for="">Вид отдыха:</span>
         <span ng-repeat="type in tour.type">{{type}} </span>
