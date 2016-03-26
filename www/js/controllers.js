@@ -19,13 +19,28 @@ angular.module('starter.controllers', ['lodash'])
     }
   }); 
 })
+.factory("Tours", function($http) {
+
+    function getTours (cb) {
+      $http.get('data/data.json').then(cb);
+    };
+
+    function parse(r) {
+      return r.data;
+    }
+
+  return {
+    getTours: getTours,
+    parse: parse
+  };
+})
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $interval) {
   var min = 0;
   var max = $rootScope.tours.length;
   $interval(updateTour, 1000);
 
   function updateTour () {
-    $scope.id = Math.random() * (max - min) + min;
+    $scope.id = Math.round(Math.random() * (max - min) + min);
   }
 
   // With the new view caching in Ionic, Controllers are only called
@@ -47,20 +62,15 @@ angular.module('starter.controllers', ['lodash'])
   });
 }])
 
-.factory("Tours", function($http) {
+.controller('MainCtrl', function($scope, $stateParams, $rootScope, $interval) {
+  var min = 0;
+  var max = $rootScope.tours.length;
+  $scope.id = 1;
+  $interval(updateTour, 1000);
 
-    function getTours (cb) {
-      $http.get('data/data.json').then(cb);
-    };
-
-    function parse(r) {
-      return r.data;
-    }
-
-  return {
-    getTours: getTours,
-    parse: parse
-  };
+  function updateTour () {
+    $scope.id = Math.round(Math.random() * (max - min) + min);
+  }
 })
 
 .controller('ToursCtrl', function($scope, $rootScope) {
@@ -88,20 +98,3 @@ angular.module('starter.controllers', ['lodash'])
 .controller('tourLocationCtrl', function($scope, $stateParams) {
 
 })
-
-
-function Quantity(numOfPcs) {
-    var qty = numOfPcs;
-    var dozens = numOfPcs / 12;
-
-    this.__defineGetter__("qty", function () {
-        return qty;
-    });
-
-    this.__defineSetter__("qty", function (val) {        
-        val = parseInt(val);
-        qty = val;
-        dozens = val / 12;
-    });
-
-}
