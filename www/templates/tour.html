@@ -14,16 +14,25 @@
 
     <div class="item-text-wrap padding">
       <h1 class="padding-vertical">{{tour.name}}</h1>
-      <h4>
+      <p>
         <span>{{tour.description}}</span>
         <span ng-hide="more">Show more</span>
         <span ng-show="more"></span>
         <span ng-show="more">hide</span>
-      </h4>
-      <h4 class="padding-vertical"> <b>Страна: </b> Аргентина </h4>
-      <h4 class="padding-vertical"> <b>Вид отдыха:</b>{{tour.type}}</h4>
-      <h4 class="padding-vertical"> <b>Климат: </b> {{tour.climate}} </h4>
-      <h4 class="padding-vertical"> <b>Развлечения:</b>{{tour.keys}}</h4>
+      </p>
+      <h4 class="padding-vertical"> Страна: </b> Аргентина </h4>
+      <div>
+        <span for="">Вид отдыха:</span>
+        <span ng-repeat="type in tour.type">{{type}} </span>
+      </div>
+      <div>
+        <span for="">Климат:</span>
+        <span ng-repeat="climate in tour.climate">{{climate}} </span>
+      </div>
+      <div>
+        <span for="">Развлечения:</span>
+        <span ng-repeat="keys in tour.keys">{{keys}} </span>
+      </div>
     </div>
     <button class="button button-full button-stable padding-vertical">
       <i class="icon ion-ios-star-outline"></i> В избранное
