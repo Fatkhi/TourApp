@@ -15,10 +15,10 @@
     <div class="item-text-wrap padding">
       <h1 class="padding-vertical">{{tour.name}}</h1>
       <p>
-        <span>{{tour.description}}</span>
-        <span ng-hide="more">Show more</span>
-        <span ng-show="more"></span>
-        <span ng-show="more">hide</span>
+        <span ng-hide="more">{{tour.description | limitTo: limit}}...</span>
+        <a ng-hide="more" ng-click="showMore();">Show more</a>
+        <span ng-show="more">{{tour.description}}</span>
+        <a ng-show="more" ng-click="showLess();">Hide</a>
       </p>
       <h4 class="padding-vertical"> Страна: </b> {{tour.country}} </h4>
       <div>

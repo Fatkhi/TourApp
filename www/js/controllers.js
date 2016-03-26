@@ -53,8 +53,18 @@ angular.module('starter.controllers', ['lodash'])
 })
 
 .controller('TourCtrl', function($scope, $stateParams, $rootScope) {
+  $scope.limit = 200;
+  $scope.more = false;
+  
+  $scope.showMore = function () {
+    $scope.more = true;
+  };
+
+  $scope.showLess = function () {
+    $scope.more = false;
+  }
+
   $scope.tour = $rootScope.tours.getTour(1)[0];
   $scope.tour.country = $rootScope.tours.getCountry(1)[0].name;
-  $scope.country = 
   console.log($rootScope.tours.getCountry(1)[0]);
 })
