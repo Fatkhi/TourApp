@@ -36,7 +36,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/quest',
     views: {
       'menuContent': {
-        templateUrl: 'templates/quest.html'
+        templateUrl: 'templates/quest.html',
+        controller: 'QuestCtrl'
       }
     }
   })
