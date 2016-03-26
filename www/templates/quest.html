@@ -1,46 +1,37 @@
 <ion-view view-title="Подбор тура">
   <ion-content>
-    <div class="list">
+    <form action="" name="quest">
+      <div class="list">
       <div class="item item-divider">
-        Выберите погоду
+        Выберите погоду {{temperature}}
       </div>
       <div class="item range range-positive">
         <i class="icon ion-ios-snowy"></i>
-        <input type="range" name="volume" min="0" max="100" value="33">
+        <input type="range" name="volume" min="-60" max="60" value="33" ng-model="temperature">
         <i class="icon ion-ios-sunny"></i>
       </div>
       <div class="item item-divider">
-        Выставьте цену
+        Выставьте цену {{priceMin}} - {{priceMax}}
       </div>
       <div class="item range range-positive">
-        <i class="icon ion-social-usd-outline"></i>
-        <input type="range" name="volume" min="0" max="100" value="33">
+        <span>min</span>
+        <input type="range" name="volume" min="0" max="10000" value="33" ng-model="priceMin">
+        <i class="icon ion-social-usd"></i>
+      </div>
+      <div class="item range range-positive">
+        <span>max</span>
+        <input type="range" name="volume" min="0" max="10000" value="33" ng-model="priceMax">
         <i class="icon ion-social-usd"></i>
       </div>
       <div class="item item-divider">
         Выберите чем хотите заняться
       </div>
-      <a class="item item-thumbnail-left" href="#/app/tours/1">
+      <a ng-repeat="act in activities" class="item item-thumbnail-left" href="#/app/tours/1">
         <img src="/img/cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </a>
-      <a class="item item-thumbnail-left" href="#/app/tours/1">
-        <img src="/img/cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </a>
-      <a class="item item-thumbnail-left" href="#/app/tours/1">
-        <img src="/img/cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </a>
-      <a class="item item-thumbnail-left" href="#/app/tours/1">
-        <img src="/img/cover.jpg">
-        <h2>Pretty Hate Machine</h2>
+        <h2>{{act}}</h2>
         <p>Nine Inch Nails</p>
       </a>
     </div>
-
+    </form>
   </ion-content>
 </ion-view>
