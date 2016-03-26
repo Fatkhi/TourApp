@@ -13,9 +13,13 @@
     </ion-slide-box>
 
     <div class="item-text-wrap padding">
-      <h1 class="padding-vertical">Gayorka</h1>
+      <h1 class="padding-vertical">{{tour.name}}</h1>
       <h4>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget rutrum turpis, sed mollis nisi. Nam rutrum magna nec ligula aliquet viverra. Curabitur efficitur, leo ut accumsan semper, mi est blandit dolor, eu ultricies dolor ligula id nulla. Fusce maximus turpis enim, at interdum nisi vulputate vel. Vestibulum fringilla, neque sed blandit tristique, nunc velit maximus dui, vel condimentum neque nunc ut metus. Pellentesque pulvinar, elit eget rhoncus ornare, libero nisl vulputate libero, quis luctus turpis dui sed nisl. Sed massa nisi, bibendum at elit v
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget rutrum turpis, sed mollis nisi. Nam rutrum magna nec ligula aliquet viverra. Curabitur efficitur, leo ut accumsan semper,</span>
+        <span ng-hide="more">Show more</span>
+        <span ng-show="more"></span>
+         mi est blandit dolor, eu ultricies dolor ligula id nulla. Fusce maximus turpis enim, at interdum nisi vulputate vel. Vestibulum fringilla, neque sed blandit tristique, nunc velit maximus dui, vel condimentum neque nunc ut metus. Pellentesque pulvinar, elit eget rhoncus ornare, libero nisl vulputate libero, quis luctus turpis dui sed nisl. Sed massa nisi, bibendum at elit v
+         <span ng-show="more">hide</span>
       </h4>
       <h4 class="padding-vertical"> <b>Страна: </b> Аргентина </h4>
       <h4 class="padding-vertical"> <b>Вид отдыха:</b> активный, пассивный, смешанный </h4>
