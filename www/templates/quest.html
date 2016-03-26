@@ -27,9 +27,8 @@
         Выберите чем хотите заняться
       </div>
       <a ng-repeat="act in activities" class="item item-thumbnail-left" href="#/app/tours/1">
-        <img src="/img/cover.jpg">
-        <h2>{{act}}</h2>
-        <p>Nine Inch Nails</p>
+        <img src="{{act.img}}">
+        <h2>{{act.name}}</h2>
       </a>
     </div>
     </form>

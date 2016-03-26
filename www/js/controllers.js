@@ -73,11 +73,38 @@ angular.module('starter.controllers', ['lodash'])
   //});
 })
 
-.controller('QuestCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+.controller('QuestCtrl', ['$scope', '$stateParams', '$rootScope', function($scope, $stateParams, $rootScope) {
+  $scope.tours = $rootScope.tours.data;
   $scope.temperature = 25;
   $scope.priceMin = 0;
   $scope.priceMax = 500;
-  $scope.activities = ['лыжи', 'ночь', 'верблюды', 'океан', 'шопинг', 'клубы'];
+  $scope.activities = [
+      {
+        name: 'лыжи',
+        img: 'img/lizhi.png'
+      },
+      {
+        name: 'верблюды',
+        img: 'img/camel.jpg'
+      },
+      {
+        name: 'ночь',
+        img: 'img/night.png'
+      },
+      {
+        name: 'шопинг',
+        img: 'img/shopping.png'
+      },
+      {
+        name: 'океан',
+        img: 'img/ocean.png'
+      },
+      {
+        name: 'клубы',
+        img: 'img/club.png'
+      }
+    ];
+    
   $scope.$watch('priceMin', function() {
     if ($scope.priceMin > $scope.priceMax) {console.log('hey');}
       
@@ -103,7 +130,6 @@ angular.module('starter.controllers', ['lodash'])
     $scope.desc = function(item) {
       return item.description.split(' ').slice(0, 8).join(' ') + ' ...';
     };
-    $scope.activities = ['лыжи', 'ночь', 'верблюды', 'океан', 'шопинг', 'клубы'];
 })
 
 .controller('TourCtrl', function($scope, $stateParams, $rootScope) {
