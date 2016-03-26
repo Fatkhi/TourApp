@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.tours', {
+  .state('app.tours', {
       url: '/tours',
       views: {
         'menuContent': {
@@ -66,6 +66,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       'menuContent': {
         templateUrl: 'templates/tour.html',
         controller: 'TourCtrl'
+      }
+    }
+  })
+  .state('app.tourLocation', {
+    url: '/tours/:id/map',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tour-location.html',
+        controller: 'tourLocationCtrl'
       }
     }
   });

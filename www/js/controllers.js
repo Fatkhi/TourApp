@@ -68,3 +68,6 @@ angular.module('starter.controllers', ['lodash'])
   $scope.tour.country = $rootScope.tours.getCountry(1)[0].name;
   console.log($rootScope.tours.getCountry(1)[0]);
 })
+.controller('tourLocationCtrl', function($scope, $stateParams) {
+
+})
