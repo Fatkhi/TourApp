@@ -20,23 +20,23 @@
         <span ng-show="more">{{tour.description}}</span>
         <a ng-show="more" ng-click="showLess();">Hide</a>
       </p>
-      <h4 class="padding-vertical"> Страна: </b> {{tour.country}} </h4>
       <div>
-        <span for="">Вид отдыха:</span>
+        <span class = 'nodeParametrTures' for="">Страна:</span>
+        <span ng-repeat="type in tour.type">{{tour.country}} </span>
+      </div>
+      <div>
+        <span class = 'nodeParametrTures' for="">Вид отдыха:</span>
         <span ng-repeat="type in tour.type">{{type}} </span>
       </div>
       <div>
-        <span for="">Климат:</span>
+        <span class = 'nodeParametrTures' for="">Климат:</span>
         <span ng-repeat="climate in tour.climate">{{climate}} </span>
       </div>
       <div>
-        <span for="">Развлечения:</span>
-        <span ng-repeat="keys in tour.keys">{{keys}} </span>
+        <span class = 'nodeParametrTures' for="">Развлечения:</span>
+        <span ng-repeat="keys in tour.keys"> <a ng-href="keyword/{{keys}}"> {{keys}} </a></span>
       </div>
     </div>
-    <button class="button button-full button-stable padding-vertical">
-      <i class="icon ion-ios-star-outline"></i> В избранное
-    </button>
     <br>
     <a href="tel:+7-906-058-16-60">
       <button class="button button-full button-balanced padding-vertical">

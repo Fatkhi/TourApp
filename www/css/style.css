@@ -19,3 +19,7 @@ a {
 .description {
 	white-space: normal !important;
 }
+
+.nodeParametrTures {
+	font-weight: bold;
+}

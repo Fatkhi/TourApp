@@ -3,34 +3,20 @@
 </div>
 <ion-view view-title="Подбор тура">
   <ion-content>
-
-    <div class="list">
-
-      <div class="item item-divider">
-        Выберите погоду
-      </div>
-
-      <div class="item range range-positive">
-        <i class="icon ion-ios-snowy"></i>
-        <input type="range" name="volume" min="0" max="100" value="33">
-        <i class="icon ion-ios-sunny"></i>
-      </div>
-      <div class="item item-divider">
-        Выставьте цену
-      </div>
-      <div class="item range range-positive">
-        <i class="icon ion-social-usd-outline"></i>
-        <input type="range" name="volume" min="0" max="100" value="33">
-        <i class="icon ion-social-usd"></i>
-      </div>
-      <div class="item item-divider">
-        Выберите чем хотите заняться
-      </div>
+    <form action="" name="quest">
+      <div class="list">
       <ion-list>
         <ion-checkbox ng-repeat="key in uniqueKeys" ng-model="filter.blue"> {{key.name}}</ion-checkbox>
       </ion-list>
       <br>
       <br>
     </div>
+      <a ng-repeat="act in activities" class="item item-thumbnail-left" href="#/app/tours/1">
+        <img src="/img/cover.jpg">
+        <h2>{{act}}</h2>
+        <p>Nine Inch Nails</p>
+      </a>
+    </div>
+    </form>
   </ion-content>
 </ion-view>
