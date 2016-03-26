@@ -2,13 +2,13 @@
   <ion-content >
     <ion-slide-box on-slide-changed="slideHasChanged($index)">
       <ion-slide>
-        <img class="full-image" ng-src="{{tour.image}}">
+        <img class="full-image" ng-src="{{tour.image[0]}}">
       </ion-slide>
       <ion-slide>
-        <img class="full-image" src="/img/brazilia.jpg">
+        <img class="full-image" ng-src="{{tour.image[1]}}">
       </ion-slide>
       <ion-slide>
-        <img class="full-image" src="/img/brazilia.jpg">
+        <img class="full-image" ng-src="{{tour.image[2]}}">
       </ion-slide>
     </ion-slide-box>
 
@@ -26,15 +26,18 @@
         </div>
         <div class="item">
           <b><span for="">Вид отдыха:</span></b>
-          <span ng-repeat="type in tour.type">{{type}} </span>
+          <span ng-repeat="type in tour.type">{{type}}{{$last ? '' : ', '}} </span>
         </div>
         <div class="item">
           <b><span for="">Климат:</span></b>
-          <span ng-repeat="climate in tour.climate">{{climate}} </span>
+          <span ng-repeat="climate in tour.climate">{{climate}}{{$last ? '' : ', '}} </span>
         </div>
         <div class="item" >
           <b><span for="">Развлечения:</span></b>
           <span ng-repeat="keys in tour.keys">{{keys}}{{$last ? '' : ', '}}</span>
+        </div>
+        <div class="item item-divider text-center">
+          <b>Цена:</b> {{tour.price | currency : $ : 0}}
         </div>
       </div>
       <a href="tel:+7-906-058-16-60" class="padding-vertical">
