@@ -1,12 +1,13 @@
 angular.module('starter.controllers', ['lodash'])
 .run(function (Tours, $rootScope) {
   Tours.getTours(function (r) {
-    var tours = Tours.parse(r);
-    console.log(tours);
+    var data = Tours.parse(r);
+    console.log(data);
     $rootScope.tours = {
-      data: tours.tours,
+      data: data.tours,
+      countries: data.coutries,
       getTour: function (tourId) {
-        return tours.tours.filter(function(tour){
+        return data.tours.filter(function(tour){
           return tour.id === tourId;
         }) 
       }
