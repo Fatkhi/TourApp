@@ -75,13 +75,14 @@ angular.module('starter.controllers', ['lodash'])
 
 .controller('QuestCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
   $scope.temperature = 25;
-  $scope.priceMin = 0;
-  $scope.priceMax = 500;
+  $scope.price = 1000;
   $scope.activities = ['лыжи', 'ночь', 'верблюды', 'океан', 'шопинг', 'клубы'];
-  $scope.$watch('priceMin', function() {
-    if ($scope.priceMin > $scope.priceMax) {console.log('hey');}
-      
-  });
+  $scope.min = function() {
+    if (this.priceMin >= this.priceMax) this.priceMax = this.priceMin;
+  };
+  $scope.max = function() {
+    if (this.priceMax <= this.priceMax) this.priceMin = this.priceMax;
+  };
 }])
 
 .controller('MainCtrl', function($scope, $stateParams, $rootScope, $interval) {

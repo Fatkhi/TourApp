@@ -3,26 +3,26 @@
     <form action="" name="quest">
       <div class="list">
       <div class="item item-divider">
-        Выберите погоду {{temperature}} &#8451;
+        Выберите погоду  <span style="float: right"> {{temperature}} &#8451;</span>>
       </div>
       <div class="item range range-positive">
         <i class="icon ion-ios-snowy"></i>
-        <input type="range" name="volume" min="-60" max="60" value="33" ng-model="temperature">
+        <input type="range" name="volume" min="-40" max="40" ng-model="temperature">
         <i class="icon ion-ios-sunny"></i>
       </div>
       <div class="item item-divider">
-        Выставьте цену {{priceMin}} - {{priceMax}} у.е.
+        Выставьте ориентировочную цену <span style="float: right">{{price | currency : $ : 0}}</span>
       </div>
       <div class="item range range-positive">
-        <span>min</span>
-        <input type="range" name="volume" min="0" max="10000" value="33" ng-model="priceMin">
+        <i class="icon ion-social-usd-outline"></i>
+        <input type="range" name="volume" min="0" max="10000" ng-model="price">
         <i class="icon ion-social-usd"></i>
       </div>
-      <div class="item range range-positive">
-        <span>max</span>
-        <input type="range" name="volume" min="0" max="10000" value="33" ng-model="priceMax">
-        <i class="icon ion-social-usd"></i>
-      </div>
+      <!--<div class="item range range-positive">-->
+        <!--<span>max</span>-->
+        <!--<input type="range" name="volume" min="0" max="10000" ng-change="max()" ng-model="priceMax">-->
+        <!--<i class="icon ion-social-usd"></i>-->
+      <!--</div>-->
       <div class="item item-divider">
         Выберите чем хотите заняться
       </div>

@@ -1,8 +1,8 @@
 <ion-view view-title="{{tour.country}}">
-  <ion-content class="padding-vertical">
+  <ion-content >
     <ion-slide-box on-slide-changed="slideHasChanged($index)">
       <ion-slide>
-        <img class="full-image" src="{{tour.image}}">
+        <img class="full-image" ng-src="{{tour.image}}">
       </ion-slide>
       <ion-slide>
         <img class="full-image" src="/img/brazilia.jpg">
@@ -13,46 +13,58 @@
     </ion-slide-box>
 
     <div class="item-text-wrap padding">
-      <h1 class="padding-vertical">{{tour.name}}</h1>
+      <h1 class="padding-vertical text-center">{{tour.name}}</h1>
       <p>
         <span ng-hide="more">{{tour.description | limitTo: limit}}...</span>
         <a ng-hide="more" ng-click="showMore();">Show more</a>
         <span ng-show="more">{{tour.description}}</span>
         <a ng-show="more" ng-click="showLess();">Hide</a>
       </p>
-      <h4 class="padding-vertical"> Страна: </b> {{tour.country}} </h4>
-      <div>
-        <span for="">Вид отдыха:</span>
-        <span ng-repeat="type in tour.type">{{type}} </span>
+      <div class="card">
+        <div class="item item-divider text-center">
+          Страна: </b> {{tour.country}}
+        </div>
+        <div class="item">
+          <span for="">Вид отдыха:</span>
+          <span ng-repeat="type in tour.type">{{type}} </span>
+        </div>
+        <div class="item">
+          <span for="">Климат:</span>
+          <span ng-repeat="climate in tour.climate">{{climate}} </span>
+        </div>
+        <div class="item" >
+          <span for="">Развлечения:</span>
+          <span ng-repeat="keys in tour.keys">{{keys}} </span>
+        </div>
       </div>
-      <div>
-        <span for="">Климат:</span>
-        <span ng-repeat="climate in tour.climate">{{climate}} </span>
-      </div>
-      <div>
-        <span for="">Развлечения:</span>
-        <span ng-repeat="keys in tour.keys">{{keys}} </span>
-      </div>
+      <a href="tel:+7-906-058-16-60" class="padding-vertical">
+        <button class="button button-block button-balanced">
+          <i class="icon ion-ios-telephone"></i> Оставить заявку
+        </button>
+      </a>
+      <a href="#" class="padding-vertical" onclick="window.open('http://www.onetwotrip.com', '_system', 'location=yes'); return false;">
+        <button class="button button-block button-positive">
+          <i class="icon ion-earth"></i> Открыть вебсайт
+        </button>
+      </a>
     </div>
-    <button class="button button-full button-stable padding-vertical">
-      <i class="icon ion-ios-star-outline"></i> В избранное
-    </button>
     <br>
-    <a href="tel:+7-906-058-16-60">
-      <button class="button button-full button-balanced padding-vertical">
-        <i class="icon ion-ios-telephone-outline"></i> Оставить заявку
-      </button>
-    </a>
-    <a href="#/app/tours/{{tour.id}}/map">
-      <button class="button button-full button-positive padding-vertical">
-        <i class="icon ion-location"></i> Показать на карте
-      </button>
-    </a>
-    <a href="#" onclick="window.open('http://www.onetwotrip.com', '_system', 'location=yes'); return false;">
-      <button class="button button-full button-light padding-vertical">
-        <i class="icon ion-earth"></i> Открыть вебсайт
-      </button>
-    </a>
+
+    <!--<a href="tel:+7-906-058-16-60">-->
+      <!--<button class="button button-block button-balanced">-->
+        <!--<i class="icon ion-ios-telephone-outline"></i> Оставить заявку-->
+      <!--</button>-->
+    <!--</a>-->
+    <!--<a href="#" onclick="window.open('http://www.onetwotrip.com', '_system', 'location=yes'); return false;">-->
+      <!--<button class="button button-block button-positive">-->
+        <!--<i class="icon ion-earth"></i> Открыть вебсайт-->
+      <!--</button>-->
+    <!--</a>-->
+    <!--<a href="#/app/tours/{{tour.id}}/map">-->
+    <!--<button class="button button-full button-positive padding-vertical">-->
+    <!--<i class="icon ion-location"></i> Показать на карте-->
+    <!--</button>-->
+    <!--</a>-->
     <br>
     <br>
   </ion-content>
