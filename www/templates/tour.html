@@ -2,13 +2,13 @@
   <ion-content >
     <ion-slide-box on-slide-changed="slideHasChanged($index)">
       <ion-slide>
-        <img class="full-image" ng-src="{{tour.image}}">
+        <img class="full-image" ng-src="{{tour.image[0]}}">
       </ion-slide>
       <ion-slide>
-        <img class="full-image" src="/img/brazilia.jpg">
+        <img class="full-image" ng-src="{{tour.image[1]}}">
       </ion-slide>
       <ion-slide>
-        <img class="full-image" src="/img/brazilia.jpg">
+        <img class="full-image" ng-src="{{tour.image[2]}}">
       </ion-slide>
     </ion-slide-box>
 
