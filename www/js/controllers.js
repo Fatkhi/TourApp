@@ -100,6 +100,9 @@ angular.module('starter.controllers', ['lodash'])
     $scope.searchChanged = function() {
       $scope.tours = $rootScope.tours.search(this.searchInput);
     };
+    $scope.desc = function(item) {
+      return item.description.split(' ').slice(0, 8).join(' ') + ' ...';
+    };
     $scope.activities = ['лыжи', 'ночь', 'верблюды', 'океан', 'шопинг', 'клубы'];
 })
 
