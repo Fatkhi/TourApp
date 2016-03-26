@@ -55,7 +55,7 @@ angular.module('starter.controllers', ['lodash'])
 .controller('TourCtrl', function($scope, $stateParams, $rootScope) {
   $scope.limit = 200;
   $scope.more = false;
-  
+  $scope.id = parseInt($stateParams.id);
   $scope.showMore = function () {
     $scope.more = true;
   };
@@ -64,9 +64,10 @@ angular.module('starter.controllers', ['lodash'])
     $scope.more = false;
   }
 
-  $scope.tour = $rootScope.tours.getTour(1)[0];
-  $scope.tour.country = $rootScope.tours.getCountry(1)[0].name;
-  console.log($rootScope.tours.getCountry(1)[0]);
+  console.log( $stateParams.id);
+  $scope.tour = $rootScope.tours.getTour($scope.id)[0];
+  $scope.tour.country = $rootScope.tours.getCountry($scope.id)[0].name;
+  console.log($rootScope.tours.getCountry($scope.id)[0]);
 })
 .controller('tourLocationCtrl', function($scope, $stateParams) {
 
