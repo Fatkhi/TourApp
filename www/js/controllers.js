@@ -46,6 +46,12 @@ angular.module('starter.controllers', ['lodash'])
   }
 })
 
+
+.controller('QuestCtrl', function($scope, $rootScope) {
+var arr = _.flatten( _.pluck($rootScope.tours.data, 'keys') );
+$scope.uniqueKeys = arr.map(function(node) { return {name: node};});
+})
+/*
 .controller('QuestCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
   $scope.temperature = 25;
   $scope.priceMin = 0;
@@ -56,6 +62,7 @@ angular.module('starter.controllers', ['lodash'])
       
   });
 }])
+*/
 
 .controller('MainCtrl', function($scope, $stateParams, $rootScope, $interval) {
   var min = 0;
