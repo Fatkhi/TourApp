@@ -1,5 +1,4 @@
-
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['lodash'])
 .run(function (Tours, $rootScope) {
   Tours.getTours(function (r) {
     var tours = Tours.parse(r);
@@ -12,7 +11,6 @@ angular.module('starter.controllers', [])
         }) 
       }
     }
-
   }); 
 })
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
