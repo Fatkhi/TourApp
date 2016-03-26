@@ -70,6 +70,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+
+  .state('app.toursFilter', {
+    url: '/tours/:price/:temp/:activity',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tours.html',
+        controller: 'ToursCtrl'
+      }
+    }
+  })
   .state('app.tourLocation', {
     url: '/tours/:id/map',
     views: {

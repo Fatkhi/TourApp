@@ -75,8 +75,9 @@ angular.module('starter.controllers', ['lodash'])
 
 .controller('QuestCtrl', ['$scope', '$stateParams', '$rootScope', function($scope, $stateParams, $rootScope) {
   $scope.tours = $rootScope.tours.data;
-  $scope.temperature = 25;
-  $scope.price = 1000;
+  $scope.tours.temperature = 25;
+
+  $scope.tours.price = 1000;
   $scope.activities = [
       {
         name: 'лыжи',
@@ -123,8 +124,26 @@ angular.module('starter.controllers', ['lodash'])
   }
 })
 
-.controller('ToursCtrl', function($scope, $rootScope) {
+.controller('ToursCtrl', function($scope, $rootScope, $stateParams) {
     $scope.tours = $rootScope.tours.data;
+    console.log($stateParams)
+    function getShow(tour) {
+      if($stateParams.price) {
+        tour.show = tour.price <=  $stateParams.price ? true : false;
+        //tour.show = tour.activities.filter(function ())
+      } else {
+        tour.show = true;
+      }
+      
+    }
+    $scope.tours.forEach(function(t) {
+      getShow(t);
+    });
+    // debugger;
+    
+    
+
+   
     $scope.searchChanged = function() {
       $scope.tours = $rootScope.tours.search(this.searchInput);
     };

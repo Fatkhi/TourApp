@@ -3,19 +3,19 @@
     <form action="" name="quest">
       <div class="list">
       <div class="item item-divider">
-        Выберите погоду  <span style="float: right"> {{temperature}} &#8451;</span>>
+        Выберите погоду  <span style="float: right"> {{tours.temperature}} &#8451;</span>>
       </div>
       <div class="item range range-positive">
         <i class="icon ion-ios-snowy"></i>
-        <input type="range" name="volume" min="-40" max="40" ng-model="temperature">
+        <input type="range" name="volume" min="-40" max="40" ng-model="tours.temperature">
         <i class="icon ion-ios-sunny"></i>
       </div>
       <div class="item item-divider">
-        Выставьте ориентировочную цену <span style="float: right">{{price | currency : $ : 0}}</span>
+        Выставьте ориентировочную цену <span style="float: right">{{tours.price | currency : $ : 0}}</span>
       </div>
       <div class="item range range-positive">
         <i class="icon ion-social-usd-outline"></i>
-        <input type="range" name="volume" min="0" max="10000" ng-model="price">
+        <input type="range" name="volume" min="0" max="10000" ng-model="tours.price">
         <i class="icon ion-social-usd"></i>
       </div>
       <!--<div class="item range range-positive">-->
@@ -26,7 +26,7 @@
       <div class="item item-divider">
         Выберите чем хотите заняться
       </div>
-      <a ng-repeat="act in activities" class="item item-avatar-left" href="#/app/tours/1">
+      <a ng-click="setFilter(act)" ng-repeat="act in activities" class="item item-avatar-left" href="#/app/tours/{{tours.price}}/{{tours.temperature}}/{{act.name}}">
         <img src="{{act.img}}">
         <h2>{{act.name}}</h2>
       </a>

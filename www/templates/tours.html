@@ -7,7 +7,7 @@
           <input ng-model="searchInput" ng-change="searchChanged()" type="text" placeholder="Search">
         </label>
       </div>
-      <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="tour in tours" href="#/app/tours/{{tour.id}}">
+      <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="tour in tours | filter:{show:true}" href="#/app/tours/{{tour.id}}">
         <img ng-src={{tour.image}}>
         <h2>{{tour.name}}</h2>
         <p class="description">{{desc(tour)}}</p>
